@@ -6,6 +6,7 @@ __pycache__/
 # C extensions
 *.so
 .replit
+last_model.h5
 
 # Distribution / packaging
 .Python
@@ -27,6 +28,8 @@ share/python-wheels/
 .installed.cfg
 *.egg
 MANIFEST
+.ipynb_checkpoints
+.ipynb_checkpoints/
 
 # PyInstaller
 #  Usually these files are written by a python script from a template
