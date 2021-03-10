@@ -9,7 +9,7 @@ img_rows = 200 ## Comprimento imagem
 img_cols = 200 ## Largura 
 channels = 3 ## 3 porque eh colorida
 
-def ler_imagens(file_paths, img_rows, img_cols, channels):
+def ler_imagens(file_paths, img_rows = 200, img_cols = 200, channels = 3):
   images = []
   for file_path in file_paths:
     images.append(imread(file_path))
