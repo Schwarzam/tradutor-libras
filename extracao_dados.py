@@ -7,7 +7,7 @@ from skimage.io import imread
 
 img_rows = 200 ## Comprimento imagem
 img_cols = 200 ## Largura 
-channels = 3 ## 3 porque eh colorida
+channels = 3 ## 3 porque eh colorida (3 bandas)_
 
 def ler_imagens(file_paths, img_rows = 200, img_cols = 200, channels = 3):
   images = []
