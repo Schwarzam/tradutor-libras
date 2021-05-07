@@ -5,6 +5,7 @@ import numpy as np
 from extracao_dados import ler_imagens  ## Tem que estar na mesma pasta do arquivo extracao_dados.py
 from sklearn import preprocessing
 from extracao_dados import get_images_array, get_images_label, tirar_foto
+from time import sleep
 
 labels = get_images_label()
 le = preprocessing.LabelEncoder()
