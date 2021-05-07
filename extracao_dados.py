@@ -4,6 +4,10 @@ import os
 from os import listdir
 from os.path import isfile, join
 from skimage.io import imread
+from picamera import PiCamera
+from time import sleep
+from PIL import Image, ImageOps
+from io import BytesIO
 
 img_rows = 200 ## Comprimento imagem
 img_cols = 200 ## Largura 
@@ -41,3 +45,37 @@ def get_images_array(): ## Funcao que retorna o array com todas imagens das past
     
     print(len(label), "images loaded")
     return array, label            
+
+def get_images_label(): ## Funcao que retorna o array com todas imagens das pastas
+    return label  
+
+def tirar_foto():
+  camera = PiCamera()
+  camera.resolution = (200, 200)
+  camera.start_preview()
+
+  sleep(0.1)
+
+  camera.brightness = 60
+  by = BytesIO()
+  camera.capture(by, format='jpeg')
+  by.seek(0)
+
+  img = Image.open(by)
+  img = ImageOps.flip(img)
+
+  img = [np.asarray(img)]
+  img = np.asarray(img, dtype=np.float32)
+  img = img / 255.0
+
+  img = img.reshape(img.shape[0], 200, 200, 3)
+  return img
+
+
+
+
+
+
+
+
+
