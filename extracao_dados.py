@@ -59,6 +59,7 @@ def tirar_foto():
   camera.brightness = 60
   by = BytesIO()
   camera.capture(by, format='jpeg')
+  camera.close()
   by.seek(0)
 
   img = Image.open(by)
