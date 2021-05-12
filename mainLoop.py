@@ -17,8 +17,8 @@ modelo = load_model('rede_neural.h5')  ## tem que estar na mesma pasta do arquiv
 x = True
 while x:
 	imagem_pronta = tirar_foto()
-	resposta = modelo.predict(imagem_pronta)
-	resposta = np.argmax(resposta, axis=-1) ## Vai gerar o numero correspondente a resposta
-	print(le.classes_[resposta[0]])
+	respostaprob = modelo.predict(imagem_pronta)
+	resposta = np.argmax(respostaprob, axis=-1) ## Vai gerar o numero correspondente a resposta
+	print(le.classes_[resposta[0]], 'with', respostaprob.max())
 
 	sleep(0.4)

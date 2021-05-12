@@ -56,7 +56,6 @@ def tirar_foto():
 
   sleep(0.1)
 
-  camera.brightness = 60
   by = BytesIO()
   camera.capture(by, format='jpeg')
   camera.close()
@@ -65,6 +64,9 @@ def tirar_foto():
   img = Image.open(by)
   img = ImageOps.flip(img)
 
+  img = ImageOps.mirror(img)
+
+  img.save('foto.jpg')
   img = [np.asarray(img)]
   img = np.asarray(img, dtype=np.float32)
   img = img / 255.0
