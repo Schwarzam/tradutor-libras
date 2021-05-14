@@ -21,7 +21,7 @@ with picamera.PiCamera() as camera:
 #        ninit = ninit + 1
 #        time.sleep(1)
 
-    for i in range(200):
+    for i in range(100):
         print(f"Foto {i}")
         camera.capture(f'{letra}/imagem{ninit}.jpg')
         ninit = ninit + 1
