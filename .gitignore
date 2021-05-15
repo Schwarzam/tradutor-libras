@@ -9,6 +9,9 @@ __pycache__/
 last_model.h5
 rede_neural.h5
 
+rede_neural_numeros.h5
+rede_neural_numeros_99%.h5
+
 # Distribution / packaging
 .Python
 build/
