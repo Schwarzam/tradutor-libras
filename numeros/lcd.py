@@ -1,18 +1,14 @@
 import smbus
 import time
 
-# Define some device parameters
 I2C_ADDR  = 0x27 # I2C device address, if any error, change this address to 0x3f
 LCD_WIDTH = 16   # Maximum characters per line
 
-# Define some device constants
 LCD_CHR = 1 # Mode - Sending data
 LCD_CMD = 0 # Mode - Sending command
 
 LCD_LINE_1 = 0x80 # LCD RAM address for the 1st line
 LCD_LINE_2 = 0xC0 # LCD RAM address for the 2nd line
-LCD_LINE_3 = 0x94 # LCD RAM address for the 3rd line
-LCD_LINE_4 = 0xD4 # LCD RAM address for the 4th line
 
 LCD_BACKLIGHT  = 0x08  # On
 #LCD_BACKLIGHT = 0x00  # Off
@@ -24,8 +20,7 @@ E_PULSE = 0.0005
 E_DELAY = 0.0005
 
 #Open I2C interface
-#bus = smbus.SMBus(0)  # Rev 1 Pi uses 0
-bus = smbus.SMBus(1) # Rev 2 Pi uses 1
+bus = smbus.SMBus(1) 
 
 def lcd_init():
   # Initialise display
@@ -71,32 +66,3 @@ def lcd_string(message,line):
 
   for i in range(LCD_WIDTH):
     lcd_byte(ord(message[i]),LCD_CHR)
-
-def main():
-  # Main program block
-
-  # Initialise display
-  lcd_init()
-
-  while True:
-
-    # Send some test
-    lcd_string("Created by         <",LCD_LINE_1)
-    lcd_string("Osoyoo.com        <",LCD_LINE_2)
-
-    time.sleep(3)
-  
-    # Send some more text
-    lcd_string("> Tutorial Url:",LCD_LINE_1)
-    lcd_string("> http://osoyoo.com",LCD_LINE_2)
-
-    time.sleep(3)
-
-if __name__ == '__main__':
-
-  try:
-    main()
-  except KeyboardInterrupt:
-    pass
-  finally:
-    lcd_byte(0x01, LCD_CMD)
