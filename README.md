@@ -4,6 +4,7 @@ Trabalho para traduzir sinais de números.
 *A Pasta numeros contem o trabalho finalizado e consistente para tradução de gestos de números*
 Link do modelo de números que obteve 99% de performance no set de teste: https://drive.google.com/file/d/1t-x70sz59CT0_UngFMiRrA2yVggjRoVU/view?usp=sharing
 
+<img src="https://github.com/Schwarzam/tradutor-libras/raw/main/numeros/imagens_trabalho/gestos.png" />
 
 
 
