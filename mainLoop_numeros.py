@@ -22,7 +22,6 @@ with picamera.PiCamera() as camera:
 		camera.capture(f'foto.jpg')
 		sleep(0.1)
 		imagem_pronta = ler_imagens(['foto.jpg'])
-		plt.imsave('foto1.jpg', imagem_pronta[0])
 
 		respostaprob = modelo.predict(imagem_pronta)
 		resposta = np.argmax(respostaprob, axis=-1) ## Vai gerar o numero correspondente a resposta
