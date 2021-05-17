@@ -31,10 +31,10 @@ def get_metadata(dataSet):
   file_paths = []
 
   #Pegar pastas dentro de ./camera
-  for folder in os.listdir(f'../numeros/{dataSet}'):
-      if os.path.isdir(f'../numeros/{dataSet}/' + folder):
+  for folder in os.listdir(f'./{dataSet}'):
+      if os.path.isdir(f'./{dataSet}/' + folder):
           ## Pegar todos arquivos da pasta
-          for root, dirs, files in os.walk(os.path.abspath(f"../numeros/{dataSet}/" + folder)):
+          for root, dirs, files in os.walk(os.path.abspath(f"./{dataSet}/" + folder)):
               for file in files:
                   file_paths.append(os.path.join(root, file))
                   label.append(str(folder))
@@ -50,27 +50,4 @@ def get_images_array(): ## Funcao que retorna o array com todas imagens das past
 def get_images_label(): ## Funcao que retorna o array com todas imagens das pastas
     return label  
 
-def tirar_foto():
-  camera = PiCamera()
-  camera.resolution = (200, 200)
-  camera.start_preview()
 
-  sleep(0.1)
-
-  by = BytesIO()
-  camera.capture(by, format='jpeg')
-  camera.close()
-  by.seek(0)
-
-  img = Image.open(by)
-  img = ImageOps.flip(img)
-
-  img = ImageOps.mirror(img)
-
-  img.save('foto.jpg')
-  img = [np.asarray(img)]
-  img = np.asarray(img, dtype=np.float32)
-  img = img / 255.0
-
-  img = img.reshape(img.shape[0], 200, 200, 3)
-  return img
