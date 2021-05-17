@@ -17,5 +17,6 @@ Link do modelo de números que obteve 99% de performance no set de teste: https:
 <br>
 <br>
 <br>
-## *A Pasta libras contem o trabalho incompleto para tradução de libras mas ainda viável com um dataset maior* 
+
+# A Pasta libras contem o trabalho **INCOMPLETO** para tradução de libras mas ainda viável com um dataset maior
 Link para o modelo incosistente para algumas letras de libras: https://drive.google.com/file/d/1cYrzDMbS4jqZg7qvQhMOEwEnmIVLmsSI/view?usp=sharing
